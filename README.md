@@ -16,15 +16,13 @@ The UI uses **shadcn UI**, a Tailwind CSS + Radix UI based component library for
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **React** — UI library
-- **Vite** — Dev server and build tool
-- **TypeScript** — Typed JavaScript
-- **Redux Toolkit Query (RTK Query)** — Data fetching and caching
-- **shadcn UI** — UI components built with Radix UI and Tailwind CSS
-- **Tailwind CSS** — Utility-first CSS framework
-- **React Router Dom** — Client-side routing
+- ⚛️ React + TypeScript
+- 🎨 Tailwind CSS
+- 🧩 shadcn UI (based on Radix UI)
+- 🔄 Redux Toolkit
+- 🚀 Vite
 
 Backend:
 
@@ -244,11 +242,3 @@ http://localhost:5173/
 ```
 
 ---
-
-## 🛠️ Tech Stack
-
-- ⚛️ React + TypeScript
-- 🎨 Tailwind CSS
-- 🧩 shadcn UI (based on Radix UI)
-- 🔄 Redux Toolkit
-- 🚀 Vite
