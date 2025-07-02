@@ -1,69 +1,32 @@
-# React + TypeScript + Vite
+<h1 align="center">📚 Library Management System Client 📚</h1>
+# Library Management Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend application for the Library Management system built with React, Vite, Redux Toolkit Query, and shadcn UI.
 
-Currently, two official plugins are available:
+<p align="center">
+  A full-featured RESTful API for managing books & borrowing in a library.
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+This frontend app provides a user interface to browse, search, and manage library books. It fetches and manages data via RTK Query from a backend REST API built with Express, TypeScript, and MongoDB.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The UI uses **shadcn UI**, a Tailwind CSS + Radix UI based component library for accessible and customizable UI components.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **React** — UI library
+- **Vite** — Dev server and build tool
+- **TypeScript** — Typed JavaScript
+- **Redux Toolkit Query (RTK Query)** — Data fetching and caching
+- **shadcn UI** — UI components built with Radix UI and Tailwind CSS
+- **Tailwind CSS** — Utility-first CSS framework
+- **React Router Dom** — Client-side routing
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Backend:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Express.js** — Server framework
+- **TypeScript** — Backend typing
+- **MongoDB (Mongoose)** — Database and ODM
