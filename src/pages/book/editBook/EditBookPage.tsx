@@ -93,7 +93,7 @@ const EditBookPage = () => {
           <Input
             type="number"
             min={0}
-            value={copies === 0 ? "" : copies}
+            value={copies === 0 ? "0" : copies}
             onChange={(e) => {
               const val = e.target.value;
               if (val === "") {

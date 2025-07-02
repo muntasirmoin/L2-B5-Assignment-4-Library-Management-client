@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export interface BorrowSummaryItem {
   totalQuantity: number;
   book: {
+    bookId: string;
     title: string;
     isbn: string;
   };
