@@ -1,4 +1,5 @@
 <h1 align="center">📚 Library Management System Client 📚</h1>
+
 # Library Management Client
 
 Frontend application for the Library Management system built with React, Vite, Redux Toolkit Query, and shadcn UI.
@@ -30,3 +31,25 @@ Backend:
 - **Express.js** — Server framework
 - **TypeScript** — Backend typing
 - **MongoDB (Mongoose)** — Database and ODM
+
+## 📂 Structure Overview
+
+├── public/ </br>  
+├── src/ </br>  
+│ ├── components/ </br>  
+│ ├── constants/ </br>  
+│ ├── pages/ </br>  
+│ ├── provider/ </br>  
+│ ├── redux/ </br>  
+│ └── route/ </br>  
+├── .gitignore </br>  
+├── components.json </br>  
+├── eslint.config.js </br>  
+├── index.html </br>  
+├── package-lock.json </br>  
+├── package.json </br>  
+├── tsconfig.app.json </br>  
+├── tsconfig.json </br>  
+├── tsconfig.node.json </br>  
+├── vercel.json </br>  
+└── vite.config.ts </br>
