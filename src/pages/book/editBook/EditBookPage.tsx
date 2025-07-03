@@ -21,7 +21,12 @@ const EditBookPage = () => {
   const navigate = useNavigate();
   const from = (location.state as { from?: string })?.from || "/books";
 
-  const { data: bookData, isLoading: isBookLoading } = useGetBookQuery(id);
+  const { data: bookData, isLoading: isBookLoading } = useGetBookQuery(id, {
+    // pollingInterval: 30000,
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true,
+    refetchOnReconnect: true,
+  });
   const [updateBook, { isLoading }] = useUpdateBookMutation();
 
   const [title, setTitle] = useState("");
@@ -156,10 +161,19 @@ const EditBookPage = () => {
         </div>
 
         <div className="flex gap-4 pt-4">
-          <Button type="submit" disabled={isLoading}>
+          <Button
+            type="submit"
+            disabled={isLoading}
+            className="flex-1 bg-green-600  hover:bg-green-700 hover:text-white cursor-pointer"
+          >
             {isLoading ? "Saving..." : "Save"}
           </Button>
-          <Button type="button" variant="ghost" onClick={() => navigate(from)}>
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={() => navigate(from)}
+            className="flex-1 bg-red-600  hover:bg-red-700 hover:text-white cursor-pointer"
+          >
             Cancel
           </Button>
         </div>

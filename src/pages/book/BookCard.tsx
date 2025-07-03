@@ -92,15 +92,26 @@ export const BookCard = ({ book }: BookCardProps) => {
 
       <CardFooter className="flex gap-2 flex-wrap justify-between">
         {/* Borrow Button */}
-        <Link to={`/borrow/${book._id}`} state={{ from: location.pathname }}>
+        {book.copies === 0 ? (
           <Button
             variant="outline"
+            disabled
             size="sm"
-            className="text-green-600 border-green-600 hover:bg-green-700 hover:text-white cursor-pointer"
+            className="text-gray-600 border-gray-600 cursor-not-allowed"
           >
-            Borrow
+            Unavailable
           </Button>
-        </Link>
+        ) : (
+          <Link to={`/borrow/${book._id}`} state={{ from: location.pathname }}>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-green-600 border-green-600 hover:bg-green-700 hover:text-white cursor-pointer"
+            >
+              Borrow
+            </Button>
+          </Link>
+        )}
 
         {/* Edit Button */}
         <Link to={`/edit-book/${book._id}`} state={{ from: location.pathname }}>

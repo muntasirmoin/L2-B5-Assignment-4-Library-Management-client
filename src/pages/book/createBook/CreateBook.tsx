@@ -201,13 +201,17 @@ const CreateBook = () => {
 
             {/* Buttons */}
             <div className="flex gap-4">
-              <Button type="submit" disabled={isLoading} className="flex-1">
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="flex-1 bg-green-600  hover:bg-green-700 hover:text-white cursor-pointer"
+              >
                 {isLoading ? "Creating..." : "Create Book"}
               </Button>
               <Button
                 type="button"
                 variant="ghost"
-                className="flex-1"
+                className="flex-1 bg-red-600  hover:bg-red-700 hover:text-white cursor-pointer"
                 onClick={() => navigate("/")}
               >
                 Cancel

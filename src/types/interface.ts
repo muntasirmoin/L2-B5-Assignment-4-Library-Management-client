@@ -5,3 +5,13 @@ export type Genre =
   | "HISTORY"
   | "BIOGRAPHY"
   | "FANTASY";
+
+export interface APIError {
+  status: number;
+  data: {
+    message?: string;
+    error?: {
+      errors?: Record<string, { message: string }>;
+    };
+  };
+}
