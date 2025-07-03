@@ -5,6 +5,7 @@ import Pagination from "../pagination/Pagination";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import Banner from "@/components/banner/Banner";
+import { Helmet } from "react-helmet-async";
 
 export default function Book() {
   const [page, setPage] = useState(1);
@@ -44,6 +45,9 @@ export default function Book() {
   }
   return (
     <>
+      <Helmet>
+        <title>Home | Book!Nest </title>
+      </Helmet>
       <Banner />
       <div className="border border-gray-200 rounded-lg bg-[#fcfbfb] p-6 shadow-sm mt-4">
         <h2 className="text-2xl mt-2 sm:text-3xl md:text-4xl font-extrabold text-center bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-transparent bg-clip-text">

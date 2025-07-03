@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useGetBookQuery, useUpdateBookMutation } from "@/redux/api/baseApi";
 import { toast } from "sonner";
 import type { Genre } from "@/types/interface";
+import { Helmet } from "react-helmet-async";
 
 const genres: Genre[] = [
   "FICTION",
@@ -71,53 +72,63 @@ const EditBookPage = () => {
   if (isBookLoading) return <p>Loading book...</p>;
 
   return (
-    <div className="max-w-md mx-auto p-6 mt-10 bg-white rounded shadow">
-      <h2 className="text-xl font-semibold mb-4">Edit Book</h2>
+    <>
+      <Helmet>
+        <title>Edit| Book!Nest </title>
+      </Helmet>
+      <div className="border border-gray-200 bg-[#fcfbfb] p-1 ">
+        <h2 className="text-2xl mt-2 sm:text-3xl md:text-4xl font-extrabold text-center bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-transparent bg-clip-text">
+          Edit Book Details
+        </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block font-medium mb-1">Title:</label>
-          <Input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
+        <p className="text-xl font-semibold sm:text-base text-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-transparent bg-clip-text mt-1">
+          Update the information of selected book to keep the library accurate!
+        </p>
+        <div className="max-w-md mx-auto p-6 mt-5 mb-5  bg-white rounded shadow">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block font-medium mb-1">Title:</label>
+              <Input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
+            </div>
 
-        <div>
-          <label className="block font-medium mb-1">Author:</label>
-          <Input
-            type="text"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-            required
-          />
-        </div>
+            <div>
+              <label className="block font-medium mb-1">Author:</label>
+              <Input
+                type="text"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+                required
+              />
+            </div>
 
-        <div>
-          <label htmlFor="genre" className="block font-medium mb-1">
-            Genre:
-          </label>
-          <select
-            id="genre"
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
-            required
-            className="w-full border rounded px-3 py-2"
-          >
-            <option value="" disabled>
-              Select a genre
-            </option>
-            {genres.map((g) => (
-              <option key={g} value={g}>
-                {g.replace("_", " ")}
-              </option>
-            ))}
-          </select>
-        </div>
+            <div>
+              <label htmlFor="genre" className="block font-medium mb-1">
+                Genre:
+              </label>
+              <select
+                id="genre"
+                value={genre}
+                onChange={(e) => setGenre(e.target.value)}
+                required
+                className="w-full border rounded px-3 py-2"
+              >
+                <option value="" disabled>
+                  Select a genre
+                </option>
+                {genres.map((g) => (
+                  <option key={g} value={g}>
+                    {g.replace("_", " ")}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-        {/* <div>
+            {/* <div>
           <label className="block font-medium mb-1">Genre:</label>
           <Input
             type="text"
@@ -127,58 +138,62 @@ const EditBookPage = () => {
           />
         </div> */}
 
-        <div>
-          <label className="block font-medium mb-1">Copies:</label>
-          <Input
-            type="number"
-            min={0}
-            value={copies === 0 ? "0" : copies}
-            onChange={(e) => {
-              const val = e.target.value;
-              if (val === "") {
-                setCopies(0);
-              } else {
-                setCopies(Number(val));
-              }
-            }}
-            required
-          />
-        </div>
+            <div>
+              <label className="block font-medium mb-1">Copies:</label>
+              <Input
+                type="number"
+                min={0}
+                value={copies === 0 ? "0" : copies}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  if (val === "") {
+                    setCopies(0);
+                  } else {
+                    setCopies(Number(val));
+                  }
+                }}
+                required
+              />
+            </div>
 
-        <div>
-          <p className="text-sm font-medium">
-            Availability:{" "}
-            <span className={copies > 0 ? "text-green-600" : "text-red-600"}>
-              {copies > 0 ? "Available" : "Unavailable"}
-            </span>
-          </p>
-        </div>
+            <div>
+              <p className="text-sm font-medium">
+                Availability:{" "}
+                <span
+                  className={copies > 0 ? "text-green-600" : "text-red-600"}
+                >
+                  {copies > 0 ? "Available" : "Unavailable"}
+                </span>
+              </p>
+            </div>
 
-        <div>
-          <p className="text-sm text-gray-600">
-            ISBN: <span className="font-mono">{isbn || "N/A"}</span>
-          </p>
-        </div>
+            <div>
+              <p className="text-sm text-gray-600">
+                ISBN: <span className="font-mono">{isbn || "N/A"}</span>
+              </p>
+            </div>
 
-        <div className="flex gap-4 pt-4">
-          <Button
-            type="submit"
-            disabled={isLoading}
-            className="flex-1 bg-green-600  hover:bg-green-700 hover:text-white cursor-pointer"
-          >
-            {isLoading ? "Saving..." : "Save"}
-          </Button>
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={() => navigate(from)}
-            className="flex-1 bg-red-600  hover:bg-red-700 hover:text-white cursor-pointer"
-          >
-            Cancel
-          </Button>
+            <div className="flex gap-4 pt-4">
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="flex-1 bg-green-600  hover:bg-green-700 hover:text-white cursor-pointer"
+              >
+                {isLoading ? "Saving..." : "Save"}
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={() => navigate(from)}
+                className="flex-1 bg-red-600  hover:bg-red-700 hover:text-white cursor-pointer"
+              >
+                Cancel
+              </Button>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
+      </div>
+    </>
   );
 };
 

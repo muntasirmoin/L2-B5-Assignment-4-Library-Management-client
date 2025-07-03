@@ -14,6 +14,8 @@ import type { IBook } from "../BookCard";
 import Pagination from "@/pages/pagination/Pagination";
 import { DeleteBookCard } from "../deleteBook/DeleteBookCard";
 import { toast } from "sonner";
+import { Helmet } from "react-helmet-async";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const AllBook = () => {
   const [page, setPage] = useState(1);
@@ -47,11 +49,22 @@ const AllBook = () => {
 
   const navigate = useNavigate();
 
-  if (isLoading) return <p>Loading books...</p>;
+  if (isLoading) {
+    return (
+      <div className="max-w-4xl mx-auto p-6 space-y-4">
+        {[...Array(4)].map((_, idx) => (
+          <Skeleton key={idx} className="h-25 w-full rounded-full" />
+        ))}
+      </div>
+    );
+  }
   if (isError) return <p>Error loading books.</p>;
 
   return (
     <>
+      <Helmet>
+        <title>All Books | Book!Nest </title>
+      </Helmet>
       <div className="border border-gray-200 bg-[#fcfbfb] p-1 ">
         <div className="text-center mb-4">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gradient bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-transparent bg-clip-text">

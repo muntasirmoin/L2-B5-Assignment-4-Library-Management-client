@@ -10,6 +10,7 @@ import { useBorrowBookMutation, useGetBookQuery } from "@/redux/api/baseApi";
 import { FaBookOpen, FaPenNib } from "react-icons/fa";
 import { ImBook } from "react-icons/im";
 import type { APIError } from "@/types/interface";
+import { Helmet } from "react-helmet-async";
 export interface IBorrow {
   book: string;
   quantity: number;
@@ -75,6 +76,9 @@ const BorrowBook = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Borrow | Book!Nest </title>
+      </Helmet>
       <div className="items-stretch bg-muted p-4 flex flex-col md:flex-row justify-center gap-8">
         {/* book info */}
         <div className="flex flex-1 flex-col justify-start items-center p-4 bg-muted w-full md:w-1/2">

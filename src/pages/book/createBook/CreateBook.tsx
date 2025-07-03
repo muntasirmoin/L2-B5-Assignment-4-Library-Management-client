@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Helmet } from "react-helmet-async";
 
 type Genre =
   | "FICTION"
@@ -88,6 +89,9 @@ const CreateBook = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Add Book | Book!Nest </title>
+      </Helmet>
       <div className="border border-gray-200 bg-[#fcfbfb] p-1 ">
         <h2 className="text-2xl mt-2 sm:text-3xl md:text-4xl font-extrabold text-center bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-transparent bg-clip-text">
           Add a New Book
