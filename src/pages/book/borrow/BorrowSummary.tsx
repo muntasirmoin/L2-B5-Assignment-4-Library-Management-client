@@ -34,11 +34,15 @@ const BorrowSummary = () => {
   }
 
   return (
-    <div className="border border-gray-200 rounded-lg bg-[#fcfbfb] p-6 shadow-sm ">
+    <div className="border border-gray-200 rounded-lg bg-[#fcfbfb] p-2 shadow-sm ">
       <div className="max-w-7xl mx-auto px-4 py-6">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6 tracking-wide">
-          Borrowed Books Summary
+        <h2 className="text-2xl p-2 sm:text-3xl md:text-4xl font-extrabold text-center bg-gradient-to-r from-green-500 via-lime-500 to-emerald-500 text-transparent bg-clip-text">
+          Every borrowed book is a new beginning.
         </h2>
+
+        <p className="text-xl font-bold sm:text-base text-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-transparent bg-clip-text mt-1">
+          Unlock stories, knowledge, and adventures — one book at a time.
+        </p>
 
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {data?.data?.map((item, index) => (

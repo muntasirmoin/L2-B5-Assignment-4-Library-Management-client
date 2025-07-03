@@ -9,7 +9,7 @@ interface PaginationProps {
 
 const Pagination = ({ page, totalPages, setPage }: PaginationProps) => {
   return (
-    <div className="flex justify-center mt-6 gap-4 items-center">
+    <div className="flex justify-center mt-6 mb-6 gap-4 items-center">
       <button
         onClick={() => setPage(Math.max(page - 1, 1))}
         disabled={page === 1}

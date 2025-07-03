@@ -46,9 +46,13 @@ export default function Book() {
     <>
       <Banner />
       <div className="border border-gray-200 rounded-lg bg-[#fcfbfb] p-6 shadow-sm mt-4">
-        <h1 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6 tracking-wide">
-          Explore Books Collection
-        </h1>
+        <h2 className="text-2xl mt-2 sm:text-3xl md:text-4xl font-extrabold text-center bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-transparent bg-clip-text">
+          Books are uniquely portable magic!
+        </h2>
+
+        <p className="text-xl mb-4 font-bold sm:text-base text-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-transparent bg-clip-text mt-1">
+          Discover knowledge. Stay organized. Read more.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {data?.data?.map((book: IBook) => (

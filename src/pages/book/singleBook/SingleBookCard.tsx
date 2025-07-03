@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useGetBookQuery } from "@/redux/api/baseApi";
 import {
   Card,
@@ -15,7 +15,13 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 
 const SingleBookCard = () => {
   const { id } = useParams<{ id: string }>();
+  // const location = useLocation();
+  const navigate = useNavigate();
   const location = useLocation();
+
+  console.log("pathSingleCard", (location.state as { from?: string })?.from);
+
+  const from = (location.state as { from?: string })?.from || "/books";
   console.log("singleID", id);
 
   const { data, isLoading, isError } = useGetBookQuery(id);
@@ -82,15 +88,14 @@ const SingleBookCard = () => {
         </div>
 
         <CardFooter className="flex justify-center mt-4">
-          <Link to={location.state?.from || "/"}>
-            <Button
-              variant="outline"
-              size="sm"
-              className="text-red-600 border-green-600 hover:bg-green-600 hover:text-white cursor-pointer"
-            >
-              <RiArrowGoBackFill />
-            </Button>
-          </Link>
+          <Button
+            onClick={() => navigate(from)}
+            variant="outline"
+            size="sm"
+            className="text-red-600 border-green-600 hover:bg-green-600 hover:text-white cursor-pointer"
+          >
+            <RiArrowGoBackFill />
+          </Button>
         </CardFooter>
       </Card>
     </div>

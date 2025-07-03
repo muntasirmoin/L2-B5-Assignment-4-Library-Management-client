@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useDeleteBookMutation } from "@/redux/api/baseApi";
 import { DeleteBookCard } from "./deleteBook/DeleteBookCard";
 import { toast } from "sonner";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 
 import { ImBook } from "react-icons/im";
 import { FaPenNib } from "react-icons/fa";
@@ -33,6 +33,7 @@ interface BookCardProps {
 export const BookCard = ({ book }: BookCardProps) => {
   console.log("book_id inside card", book);
   const location = useLocation();
+  const navigate = useNavigate();
 
   //   delete
   const [deleteBook] = useDeleteBookMutation();
@@ -91,6 +92,17 @@ export const BookCard = ({ book }: BookCardProps) => {
       </CardContent>
 
       <CardFooter className="flex gap-2 flex-wrap justify-between">
+        {/* view button */}
+        <Link to={`/books/${book._id}`} state={{ from: location.pathname }}>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => navigate(`/books/${book._id}`)}
+            className="text-teal-700 border-teal-700 hover:bg-teal-600 hover:text-white shadow-md hover:shadow-lg rounded-lg transition-all duration-300 cursor-pointer"
+          >
+            View
+          </Button>
+        </Link>
         {/* Borrow Button */}
         {book.copies === 0 ? (
           <Button
