@@ -31,7 +31,9 @@ export const DeleteBookCard = ({ book, onDelete }: DeleteBookCardProps) => {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Delete Book</AlertDialogTitle>
+          <AlertDialogTitle className="text-red-500">
+            Delete Book
+          </AlertDialogTitle>
           <AlertDialogDescription>
             Are you sure you want to delete this book?
           </AlertDialogDescription>
@@ -49,8 +51,13 @@ export const DeleteBookCard = ({ book, onDelete }: DeleteBookCardProps) => {
           </p>
         </div>
 
-        <AlertDialogCancel>Cancel</AlertDialogCancel>
-        <AlertDialogAction onClick={() => onDelete(book._id)}>
+        <AlertDialogCancel className="text-green-600 border-green-600 hover:bg-green-600 hover:text-white cursor-pointer">
+          Cancel
+        </AlertDialogCancel>
+        <AlertDialogAction
+          onClick={() => onDelete(book._id)}
+          className="bg-red  text-red-600 border border-red-600 hover:bg-red-600 hover:text-white cursor-pointer"
+        >
           Delete
         </AlertDialogAction>
       </AlertDialogContent>
