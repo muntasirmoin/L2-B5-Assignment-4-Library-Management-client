@@ -33,6 +33,10 @@ export default function Navbar() {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700 dark:text-gray-300">
           <NavLink to="/" end className={navClasses}>
+            Home
+          </NavLink>
+
+          <NavLink to="/books" className={navClasses}>
             All Books
           </NavLink>
           <NavLink to="/create-book" className={navClasses}>
@@ -59,6 +63,10 @@ export default function Navbar() {
               </SheetHeader>
               <nav className="flex flex-col gap-4 text-gray-700 dark:text-gray-300 text-base font-medium">
                 <NavLink to="/" end className={navClasses}>
+                  Home
+                </NavLink>
+
+                <NavLink to="/books" className={navClasses}>
                   All Books
                 </NavLink>
                 <NavLink to="/create-book" className={navClasses}>

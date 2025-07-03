@@ -44,6 +44,16 @@ const CreateBook = () => {
   const [copies, setCopies] = useState<number | "">(0);
   const [available, setAvailable] = useState(true);
 
+  const resetForm = () => {
+    setTitle("");
+    setAuthor("");
+    setGenre("");
+    setIsbn("");
+    setDescription("");
+    setCopies(0);
+    setAvailable(true);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -69,7 +79,7 @@ const CreateBook = () => {
       }).unwrap();
 
       toast.success("Book created successfully");
-      navigate("/"); // Redirect to book  page
+      navigate("/books"); // Redirect to book  page
     } catch (error) {
       toast.error("Failed to create book");
       console.error(error);
@@ -212,9 +222,9 @@ const CreateBook = () => {
                 type="button"
                 variant="ghost"
                 className="flex-1 bg-red-600  hover:bg-red-700 hover:text-white cursor-pointer"
-                onClick={() => navigate("/")}
+                onClick={resetForm}
               >
-                Cancel
+                Reset
               </Button>
             </div>
           </form>
