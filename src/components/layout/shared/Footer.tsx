@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between mb-4 gap-4 md:gap-0">
           <div className="flex flex-col md:flex-row md:items-center md:gap-6 text-center md:text-left">
-            <div className="font-bold text-gray-800 text-base md:text-lg">
-              Book Manager
+            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500">
+              Book!Nest
             </div>
           </div>
 

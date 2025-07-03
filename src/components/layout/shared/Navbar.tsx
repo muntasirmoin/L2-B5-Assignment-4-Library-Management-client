@@ -25,9 +25,9 @@ export default function Navbar() {
         <NavLink
           to="/"
           end
-          className="text-xl font-bold text-gray-900 dark:text-white"
+          className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500"
         >
-          Book Manager
+          Book!Nest
         </NavLink>
 
         {/* Desktop nav */}
@@ -57,8 +57,8 @@ export default function Navbar() {
             </SheetTrigger>
             <SheetContent side="left" className="p-6">
               <SheetHeader>
-                <div className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
-                  Book Manager
+                <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500">
+                  Book!Nest
                 </div>
               </SheetHeader>
               <nav className="flex flex-col gap-4 text-gray-700 dark:text-gray-300 text-base font-medium">
