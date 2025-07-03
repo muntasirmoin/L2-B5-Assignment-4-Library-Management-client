@@ -4,6 +4,16 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useGetBookQuery, useUpdateBookMutation } from "@/redux/api/baseApi";
 import { toast } from "sonner";
+import type { Genre } from "@/types/interface";
+
+const genres: Genre[] = [
+  "FICTION",
+  "NON_FICTION",
+  "SCIENCE",
+  "HISTORY",
+  "BIOGRAPHY",
+  "FANTASY",
+];
 
 const EditBookPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -25,7 +35,9 @@ const EditBookPage = () => {
       const { title, author, genre, copies, isbn } = bookData.data;
       setTitle(title ?? "");
       setAuthor(author ?? "");
+
       setGenre(genre ?? "");
+
       setCopies(copies ?? 0);
       setIsbn(isbn ?? "");
     }
@@ -47,7 +59,7 @@ const EditBookPage = () => {
       navigate(from);
     } catch (err) {
       toast.error(`Failed to Edit book: ${err || "Unknown error"}`);
-      console.error("Failed to update book:", err);
+      console.error("Failed to Edit book:", err);
     }
   };
 
@@ -79,6 +91,28 @@ const EditBookPage = () => {
         </div>
 
         <div>
+          <label htmlFor="genre" className="block font-medium mb-1">
+            Genre:
+          </label>
+          <select
+            id="genre"
+            value={genre}
+            onChange={(e) => setGenre(e.target.value)}
+            required
+            className="w-full border rounded px-3 py-2"
+          >
+            <option value="" disabled>
+              Select a genre
+            </option>
+            {genres.map((g) => (
+              <option key={g} value={g}>
+                {g.replace("_", " ")}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* <div>
           <label className="block font-medium mb-1">Genre:</label>
           <Input
             type="text"
@@ -86,7 +120,7 @@ const EditBookPage = () => {
             onChange={(e) => setGenre(e.target.value)}
             required
           />
-        </div>
+        </div> */}
 
         <div>
           <label className="block font-medium mb-1">Copies:</label>
@@ -97,7 +131,7 @@ const EditBookPage = () => {
             onChange={(e) => {
               const val = e.target.value;
               if (val === "") {
-                setCopies(0); // Optional
+                setCopies(0);
               } else {
                 setCopies(Number(val));
               }
@@ -110,7 +144,7 @@ const EditBookPage = () => {
           <p className="text-sm font-medium">
             Availability:{" "}
             <span className={copies > 0 ? "text-green-600" : "text-red-600"}>
-              {copies > 0 ? "Available" : "Not Available"}
+              {copies > 0 ? "Available" : "Unavailable"}
             </span>
           </p>
         </div>

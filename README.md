@@ -28,7 +28,7 @@ Backend:
 
 - **Express.js** — Server framework
 - **TypeScript** — Backend typing
-- **MongoDB (Mongoose)** — Database and ODM
+- **MongoDB (Mongoose)** — Database
 
 ## 📂 Structure Overview
 
