@@ -103,7 +103,7 @@ const SingleBookCard = () => {
             <strong className="text-indigo-600 flex items-center gap-1">
               Description:
             </strong>
-            <span className="font-bold hover:text-green-600 transition-colors duration-200 font-medium">
+            <span className="font-bold hover:text-green-600 transition-colors duration-200">
               {book.description}
             </span>
           </div>
