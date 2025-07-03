@@ -13,6 +13,7 @@ import { FaPenNib } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { Helmet } from "react-helmet-async";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const SingleBookCard = () => {
   const { id } = useParams<{ id: string }>();
@@ -27,9 +28,16 @@ const SingleBookCard = () => {
 
   const { data, isLoading, isError } = useGetBookQuery(id);
 
-  if (isLoading) return <p className="text-center py-10">Loading...</p>;
-  if (isError || !data?.data)
-    return <p className="text-center py-10 text-red-500">Book not found.</p>;
+  if (isLoading) {
+    return (
+      <div className="max-w-4xl mx-auto p-6 space-y-4">
+        {[...Array(4)].map((_, idx) => (
+          <Skeleton key={idx} className="h-25 w-full rounded-full" />
+        ))}
+      </div>
+    );
+  }
+  if (isError || !data?.data) return <p>Error loading books.</p>;
 
   const book = data.data;
 
@@ -39,6 +47,13 @@ const SingleBookCard = () => {
         <title>Book Info | Book!Nest </title>
       </Helmet>
       <div className=" flex flex-col justify-start items-center p-4 bg-muted">
+        <h2 className="text-2xl mt-2 mb-1 sm:text-3xl md:text-4xl font-extrabold text-center bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-transparent bg-clip-text">
+          Dive Into Its Pages!
+        </h2>
+
+        <p className="text-xm font-semibold mb-2 sm:text-base text-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-transparent bg-clip-text mt-1">
+          Brings new knowledge to life!
+        </p>
         <Card className="w-full max-w-xl shadow-lg bg-[#fcfbfb] border border-gray-200">
           <CardHeader className="pb-2 text-center">
             <CardTitle className="text-xl font-bold text-blue-800 flex items-center justify-center gap-2">
@@ -53,27 +68,29 @@ const SingleBookCard = () => {
                 <FaPenNib />
                 Author:
               </strong>
-              <span className="hover:text-green-600 transition-colors duration-200 font-medium">
+              <span className=" hover:text-green-600 transition-colors duration-200 font-bold">
                 {book.author}
               </span>
             </div>
 
             <div className="flex justify-between px-2">
-              <p>
-                <strong>Genre:</strong> {book.genre}
+              <p className="font-bold">
+                <strong className="text-indigo-600">Genre: </strong>
+                <span className="text-green-500">{book.genre}</span>
               </p>
-              <p>
-                <strong>ISBN:</strong>{" "}
-                <span className="underline text-gray-800">{book.isbn}</span>
+              <p className="font-bold">
+                <strong className="text-indigo-600">ISBN: </strong>
+                <span className="text-green-500">{book.isbn}</span>
               </p>
             </div>
 
             <div className="flex justify-between px-2">
-              <p>
-                <strong>Copies:</strong> {book.copies}
+              <p className="font-bold">
+                <strong className="text-indigo-600">Copies: </strong>
+                <span className="text-green-600">{book.copies}</span>
               </p>
-              <p>
-                <strong>Availability:</strong>{" "}
+              <p className="font-bold">
+                <strong className="text-indigo-600">Availability: </strong>
                 <span
                   className={book.available ? "text-green-600" : "text-red-600"}
                 >
@@ -84,10 +101,9 @@ const SingleBookCard = () => {
           </CardContent>
           <div className="flex items-center justify-center gap-2">
             <strong className="text-indigo-600 flex items-center gap-1">
-              {/* <FaPenNib /> */}
               Description:
             </strong>
-            <span className="hover:text-green-600 transition-colors duration-200 font-medium">
+            <span className="font-bold hover:text-green-600 transition-colors duration-200 font-medium">
               {book.description}
             </span>
           </div>
