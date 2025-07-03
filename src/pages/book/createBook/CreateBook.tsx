@@ -15,14 +15,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
-
-type Genre =
-  | "FICTION"
-  | "NON_FICTION"
-  | "SCIENCE"
-  | "HISTORY"
-  | "BIOGRAPHY"
-  | "FANTASY";
+import type { APIError, Genre } from "@/types/interface";
 
 const genres: Genre[] = [
   "FICTION",
@@ -80,10 +73,21 @@ const CreateBook = () => {
       }).unwrap();
 
       toast.success("Book created successfully");
-      navigate("/books"); // Redirect to book  page
-    } catch (error) {
-      toast.error("Failed to create book");
-      console.error(error);
+      navigate("/books");
+    } catch (err) {
+      const error = err as APIError;
+
+      const message = error?.data?.message || "Unknown error";
+      toast.error(`Failed to create book: ${message}`);
+
+      const fieldErrors = error?.data?.error?.errors;
+      if (fieldErrors) {
+        for (const key in fieldErrors) {
+          if (fieldErrors[key]?.message) {
+            toast.error(`${key}: ${fieldErrors[key].message}`);
+          }
+        }
+      }
     }
   };
 
