@@ -34,10 +34,11 @@ const EditBookPage = () => {
   const [genre, setGenre] = useState("");
   const [copies, setCopies] = useState<number>(0);
   const [isbn, setIsbn] = useState("");
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
     if (bookData?.data) {
-      const { title, author, genre, copies, isbn } = bookData.data;
+      const { title, author, genre, copies, isbn, description } = bookData.data;
       setTitle(title ?? "");
       setAuthor(author ?? "");
 
@@ -45,6 +46,7 @@ const EditBookPage = () => {
 
       setCopies(copies ?? 0);
       setIsbn(isbn ?? "");
+      setDescription(description ?? "");
     }
   }, [bookData]);
 
@@ -58,6 +60,7 @@ const EditBookPage = () => {
         author,
         genre,
         copies,
+        description,
         availability: copies > 0 ? "Available" : "unavailable",
       }).unwrap();
       toast.success("Book Edit successfully");
@@ -152,6 +155,16 @@ const EditBookPage = () => {
                   }
                 }}
                 required
+              />
+            </div>
+
+            <div>
+              <label className="block font-medium mb-1">Description:</label>
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className="w-full border rounded px-3 py-2 min-h-[80px]"
+                placeholder="Enter book description"
               />
             </div>
 
