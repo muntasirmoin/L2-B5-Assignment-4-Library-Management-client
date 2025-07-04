@@ -10,9 +10,9 @@ Frontend application for the Library Management system built with React, Vite, R
 
 ## Overview
 
-This frontend app provides a user interface to browse, search, and manage library books. It fetches and manages data via RTK Query from a backend REST API built with Express, TypeScript, and MongoDB.
+This frontend app provides a user interface to manage library books. It fetches and manages data via RTK Query from a backend REST API built with Express, TypeScript, and MongoDB.
 
-The UI uses **shadcn UI**, a Tailwind CSS + Radix UI based component library for accessible and customizable UI components.
+The UI uses **shadcn UI**, a Tailwind CSS based component library for accessible and customizable UI components.
 
 ---
 
@@ -20,7 +20,7 @@ The UI uses **shadcn UI**, a Tailwind CSS + Radix UI based component library for
 
 - ⚛️ React + TypeScript
 - 🎨 Tailwind CSS
-- 🧩 shadcn UI (based on Radix UI)
+- 🧩 shadcn UI
 - 🔄 Redux Toolkit
 - 🚀 Vite
 
@@ -66,12 +66,12 @@ A responsive navigation bar that allows users to access major sections of the ap
 
 #### Features:
 
-- app name
+- app name(Book!Nest)
 - Navigation links:
+  - **Home**
   - **All Books**
   - **Add Book**
   - **Borrow Summary**
-- Responsive design for desktop and mobile
 
 ---
 
@@ -81,9 +81,8 @@ Displays a collection of books in a responsive grid layout.
 
 #### Features:
 
-- Shows book title, author, and availability
-- Core actions for each book (e.g. **Borrow**, **Edit**, **Delete**)
-- Handles empty state and loading indicators
+- Shows book title, author, and availability & etc!
+- Core actions for each book (e.g. **Borrow**, **Edit**,**View**, **Delete**)
 
 ---
 
@@ -95,13 +94,13 @@ A simple footer displayed at the bottom of the page.
 
 - Copyright info
 - Social Media links
-- Responsive and accessible
+- Address & Contact
 
 ---
 
 # 📊 Borrow Summary Component
 
-This component displays a summary of all borrowed books using data retrieved from an **aggregation API**. It is part of the **Library Management App**.
+This component displays a summary of all borrowed books using data retrieved from an **aggregation API**.
 
 ---
 
@@ -129,9 +128,7 @@ This component allows users to create a new book record via a form. Upon success
 
 # ⚙️ Book Action Buttons & Icons
 
-This module provides individual action buttons for each book entry in the system. These allow users to **Edit**, **Delete**, or **Borrow** a book directly from the UI.
-
-All actions use accessible **shadcn UI** components and follow clean, confirm-driven UX patterns.
+This module provides individual action buttons for each book entry in the system. These allow users to **Edit**, **Delete**, **Borrow**, **View** a book directly from the UI.
 
 ---
 
@@ -148,7 +145,7 @@ This directory contains all route-based pages used in the **Library Management A
 📚 **All Books Page**
 
 - Displays a grid of all books.
-- Actions: Edit, Delete, Borrow
+- Actions: Edit, Delete, Borrow, View
 
 ---
 
@@ -242,3 +239,13 @@ http://localhost:5173/
 ```
 
 ---
+
+### 📦 GitHub Repository Links:
+
+- Frontend: https://github.com/muntasirmoin/L2-B5-Assignment-4-Library-Management-client.git
+- Backend: https://github.com/muntasirmoin/L2-B5-Assignment-4-Library-Management-server.git
+
+### 🌐 Live Deployment Links:
+
+- Frontend: https://library-management-client-woad.vercel.app/
+- Backend: https://library-managment-server-gilt.vercel.app/

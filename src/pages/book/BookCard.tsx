@@ -50,7 +50,7 @@ export const BookCard = ({ book }: BookCardProps) => {
           </strong>
         </p>
 
-        <p className="flex items-center gap-2 font-bold font-medium justify-center">
+        <p className="flex items-center gap-2 font-bold  justify-center">
           <span className="text-gray-700 font-bold">Genre:</span> {book.genre}
         </p>
         <p className="flex items-center gap-2  font-medium justify-center">
@@ -66,7 +66,7 @@ export const BookCard = ({ book }: BookCardProps) => {
           <span className="text-gray-700 font-bold">Copies:</span> {book.copies}
         </p>
         <p
-          className={`flex items-center gap-2 text-gray-900 font-medium justify-center font-bold`}
+          className={`flex items-center gap-2 text-gray-900 font-medium justify-center`}
         >
           <span className="text-gray-700 font-bold">Availability:</span>{" "}
           <span className={book.available ? "text-green-600" : "text-red-600"}>

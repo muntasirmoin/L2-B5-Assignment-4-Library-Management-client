@@ -9,11 +9,11 @@ interface BorrowSummaryResponse {
 
 export const baseApi = createApi({
   reducerPath: "baseApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api" }),
+  // baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api" }),
   // need to update here before live check
-  // baseQuery: fetchBaseQuery({
-  //   baseUrl: "https://library-managment-server-gilt.vercel.app/api",
-  // }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://library-managment-server-gilt.vercel.app/api",
+  }),
   tagTypes: ["books", "borrow"],
   endpoints: (builder) => ({
     // create a book

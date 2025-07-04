@@ -23,7 +23,6 @@ const EditBookPage = () => {
   const from = (location.state as { from?: string })?.from || "/books";
 
   const { data: bookData, isLoading: isBookLoading } = useGetBookQuery(id, {
-    // pollingInterval: 30000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
     refetchOnReconnect: true,

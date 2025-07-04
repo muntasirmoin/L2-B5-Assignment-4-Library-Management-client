@@ -1,11 +1,12 @@
 import { useGetBooksQuery } from "@/redux/api/baseApi";
-import { BookCard, type IBook } from "./BookCard";
+import { BookCard } from "./BookCard";
 import { useState } from "react";
 import Pagination from "../pagination/Pagination";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import Banner from "@/components/banner/Banner";
 import { Helmet } from "react-helmet-async";
+import type { IBook } from "@/types/interface";
 
 export default function Book() {
   const [page, setPage] = useState(1);

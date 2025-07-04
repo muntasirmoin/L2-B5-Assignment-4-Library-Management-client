@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet-async";
 
 const BorrowSummary = () => {
   const { data, isLoading, isError } = useGetBorrowSummaryQuery(undefined, {
-    // pollingInterval: 30000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
     refetchOnReconnect: true,

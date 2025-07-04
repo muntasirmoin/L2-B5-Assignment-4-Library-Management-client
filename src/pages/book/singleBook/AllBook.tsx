@@ -10,12 +10,13 @@ import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { useDeleteBookMutation, useGetBooksQuery } from "@/redux/api/baseApi";
 import { useState } from "react";
-import type { IBook } from "../BookCard";
+
 import Pagination from "@/pages/pagination/Pagination";
 import { DeleteBookCard } from "../deleteBook/DeleteBookCard";
 import { toast } from "sonner";
 import { Helmet } from "react-helmet-async";
 import { Skeleton } from "@/components/ui/skeleton";
+import type { IBook } from "@/types/interface";
 
 const AllBook = () => {
   const [page, setPage] = useState(1);
@@ -43,8 +44,7 @@ const AllBook = () => {
   };
 
   const books = data?.data || [];
-  //   const totalBooks = data?.total || 0; // Make sure your API returns total count
-  //   const totalPages = Math.ceil(totalBooks / limit);
+
   const totalPages = data?.meta?.totalPages || 1;
 
   const navigate = useNavigate();
@@ -197,7 +197,7 @@ const AllBook = () => {
           </Table>
         </div>
 
-        {/* Pagination Component */}
+        {/* Pagination*/}
         <Pagination page={page} totalPages={totalPages} setPage={setPage} />
       </div>
     </>
