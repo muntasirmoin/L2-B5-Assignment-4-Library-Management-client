@@ -36,13 +36,13 @@ export default function Navbar() {
             Home
           </NavLink>
 
-          <NavLink to="/books" className={navClasses}>
+          <NavLink to="/books" end className={navClasses}>
             All Books
           </NavLink>
-          <NavLink to="/create-book" className={navClasses}>
+          <NavLink to="/create-book" end className={navClasses}>
             Add Book
           </NavLink>
-          <NavLink to="/borrow-summary" className={navClasses}>
+          <NavLink to="/borrow-summary" end className={navClasses}>
             Borrow Summary
           </NavLink>
         </div>
@@ -66,13 +66,13 @@ export default function Navbar() {
                   Home
                 </NavLink>
 
-                <NavLink to="/books" className={navClasses}>
+                <NavLink to="/books" end className={navClasses}>
                   All Books
                 </NavLink>
-                <NavLink to="/create-book" className={navClasses}>
+                <NavLink to="/create-book" end className={navClasses}>
                   Add Book
                 </NavLink>
-                <NavLink to="/borrow-summary" className={navClasses}>
+                <NavLink to="/borrow-summary" end className={navClasses}>
                   Borrow Summary
                 </NavLink>
               </nav>
