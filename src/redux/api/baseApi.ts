@@ -1,13 +1,5 @@
-import type { IBorrow } from "@/pages/book/borrow/BorrowBook";
+import type { BorrowSummaryItem, IBorrow } from "@/types/interface";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-export interface BorrowSummaryItem {
-  totalQuantity: number;
-  book: {
-    bookId: string;
-    title: string;
-    isbn: string;
-  };
-}
 
 interface BorrowSummaryResponse {
   success: boolean;

@@ -26,7 +26,12 @@ const SingleBookCard = () => {
   const from = (location.state as { from?: string })?.from || "/books";
   console.log("singleID", id);
 
-  const { data, isLoading, isError } = useGetBookQuery(id);
+  const { data, isLoading, isError } = useGetBookQuery(id, {
+    // pollingInterval: 30000,
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true,
+    refetchOnReconnect: true,
+  });
 
   if (isLoading) {
     return (
@@ -100,10 +105,10 @@ const SingleBookCard = () => {
             </div>
           </CardContent>
           <div className="flex items-center justify-center gap-2">
-            <strong className="text-indigo-600 flex items-center gap-1">
+            <strong className="text-indigo-600 flex items-center gap-1 p-1">
               Description:
-            </strong>
-            <span className="font-bold hover:text-green-600 transition-colors duration-200">
+            </strong>{" "}
+            <span className="font-bold hover:text-green-600 transition-colors duration-200 p-1">
               {book.description}
             </span>
           </div>

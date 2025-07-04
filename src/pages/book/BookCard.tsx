@@ -8,23 +8,7 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 
 import { ImBook } from "react-icons/im";
 import { FaPenNib } from "react-icons/fa";
-
-export interface IBook {
-  _id: string;
-  title: string;
-  author: string;
-  genre:
-    | "FICTION"
-    | "NON_FICTION"
-    | "SCIENCE"
-    | "HISTORY"
-    | "BIOGRAPHY"
-    | "FANTASY";
-  isbn: string;
-  description?: string;
-  copies: number;
-  available: boolean;
-}
+import type { IBook } from "@/types/interface";
 
 interface BookCardProps {
   book: IBook;

@@ -11,11 +11,6 @@ import { FaBookOpen, FaPenNib } from "react-icons/fa";
 import { ImBook } from "react-icons/im";
 import type { APIError } from "@/types/interface";
 import { Helmet } from "react-helmet-async";
-export interface IBorrow {
-  book: string;
-  quantity: number;
-  dueDate: Date;
-}
 
 const BorrowBook = () => {
   const { bookId } = useParams<{ bookId: string }>();

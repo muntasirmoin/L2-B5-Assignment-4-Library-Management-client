@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { type BorrowSummaryItem } from "@/redux/api/baseApi";
+import type { BorrowSummaryItem } from "@/types/interface";
+
 import { ImBook } from "react-icons/im";
 import { Link } from "react-router-dom";
 
@@ -9,8 +10,6 @@ interface Props {
 }
 
 const BorrowSummaryCard = ({ item }: Props) => {
-  // const { data } = useGetBookQuery(item.book.bookId);
-  // console.log("item", item.book.bookId, data.data);
   return (
     <div className="border border-gray-200 rounded-lg bg-[#fcfbfb] p-6 shadow-sm mt-4">
       <Card className="w-full max-w-md mx-auto shadow-lg">

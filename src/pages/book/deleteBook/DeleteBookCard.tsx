@@ -10,7 +10,7 @@ import {
   AlertDialogCancel,
   AlertDialogAction,
 } from "@/components/ui/alert-dialog";
-import type { IBook } from "../BookCard";
+import type { IBook } from "@/types/interface";
 
 interface DeleteBookCardProps {
   book: IBook;
