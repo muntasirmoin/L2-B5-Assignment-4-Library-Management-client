@@ -1,4 +1,4 @@
-<h1 align="center">📚 Library Management System Client 📚</h1>
+<h1 align="center">📚 Book!Nest 📚</h1>
 
 # Library Management Client
 
